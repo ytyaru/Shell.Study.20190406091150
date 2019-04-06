@@ -5,6 +5,18 @@
 # 作成日時: 2019-04-06T14:56:33+0900
 # http://ytyaru.hatenablog.com/entry/2020/06/16/000000
 #-----------------------------------------------------------------------------
+#ShowParams() {
+#	echo "ParamNum: $#"
+#	local count=1
+#	for p in $@; do echo "$count: $p"; ((count++)); done;
+#}
+#ShowNamedParams() {
+#	echo "ParamNum: $#"
+#	local count=1
+#	#for key in "${!1[@]}"; echo "${key}: ${!1[$key]}"; done;
+#	#for key in $(eval echo "${!'"$1"'}[@]"); echo "${key}: ""$(eval echo ${$1[$key]})"; done;
+#	#for key in $(eval "${!'"$1"'}[@]"); echo "${key}: ""$(eval ${$1[$key]})"; done;
+#}
 Run() {
 	echo "$BASH"
 	echo "$BASHOPTS"
@@ -20,6 +32,12 @@ Run() {
 	echo "$BASH_SOURCE"
 	echo "$BASH_SUBSHELL"
 	echo "$BASH_VERSINFO"
+	echo "${BASH_VERSINFO[0]}"
+	echo "${BASH_VERSINFO[1]}"
+	echo "${BASH_VERSINFO[2]}"
+	echo "${BASH_VERSINFO[3]}"
+	echo "${BASH_VERSINFO[4]}"
+	echo "${BASH_VERSINFO[5]}"
 	echo "$BASH_VERSION"
 	echo "$COMP_CWORD"
 	echo "$COMP_KEY"
