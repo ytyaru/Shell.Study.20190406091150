@@ -5,11 +5,25 @@
 # 作成日時: 2019-04-06T14:56:33+0900
 # http://ytyaru.hatenablog.com/entry/2020/06/16/000000
 #-----------------------------------------------------------------------------
-#ShowParams() {
-#	echo "ParamNum: $#"
-#	local count=1
-#	for p in $@; do echo "$count: $p"; ((count++)); done;
-#}
+ShowParams() {
+	# 引数で変数名を指定して参照したかったができない。配列、連想配列は不可。
+	local -r VNAME="$1"
+	echo "ParamNum: $#"
+	local count=1
+	echo '------------------------'
+	echo "${1}"
+	echo "${!1}"
+	echo "${!VNAME}"
+	echo "${!VNAME[@]}"
+	#echo "${!VNAME[#]}"
+	echo "${!VNAME[*]}"
+	#echo "${!#VNAME}"
+	#echo "${#!VNAME[@]}"
+	#echo "${#${!VNAME}[@]}"
+	echo '------------------------'
+	for ((i=0; i<10; i++)); do echo "${i}: ${!VNAME[$i]}"; done;
+	#for p in $@; do echo "$count: $p"; ((count++)); done;
+}
 #ShowNamedParams() {
 #	echo "ParamNum: $#"
 #	local count=1
@@ -32,6 +46,7 @@ Run() {
 	echo "$BASH_SOURCE"
 	echo "$BASH_SUBSHELL"
 	echo "$BASH_VERSINFO"
+	ShowParams "BASH_VERSINFO"
 	echo "${BASH_VERSINFO[0]}"
 	echo "${BASH_VERSINFO[1]}"
 	echo "${BASH_VERSINFO[2]}"
