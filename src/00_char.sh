@@ -8,6 +8,7 @@ set -Ceu
 Run() {
 	EscapeSequence
 	Example
+	Finalize
 }
 EscapeSequence() {
 	echo -e 'A\tB\n1\t2'
@@ -83,4 +84,5 @@ Example() {
 	MyFunc() { echo F; }
 	MyFunc
 }
+Finalize() { rm -Rf a.txt; }
 Run
