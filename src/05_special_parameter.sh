@@ -20,6 +20,7 @@ Result() {
 	[[ 1 -ne 1 ]] && echo "True: $?" || echo "False: $?"
 }
 Run() {
+	echo "$_"
 	# bash実行時のフラグ
 	echo "$-"
 	echo "$BASHPID"
@@ -33,5 +34,6 @@ Run() {
 	FullPath
 	ShowParams A B C
 	Result
+	echo "$_"
 }
 Run
